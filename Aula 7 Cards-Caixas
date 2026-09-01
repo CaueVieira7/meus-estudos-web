@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #000000;
+            color: #FFFFFF;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        h1 {
+            color: #fdff69;
+        }
+
+        .card {
+            padding: 20px;
+            margin: 50px;
+            border: 5px solid #3b4efc;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .michael-kaiser {
+            background-color: #2d5ef0;
+            color: #Ffffff;
+            border-color: #97a7f8;
+        }
+
+        .michael-kaiser img {
+            border: 5px solid #FFD700;
+        }
+
+        .michael-kaiser h2 {
+            color: #FFD700;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .michael-kaiser p {
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .escanor {
+            background-color: #fa9c3e;
+            color: #ffe357;
+            border-color: #ff6200;
+        }
+
+        .escanor h2,
+        .escanor p {
+            color: #fcdf4d;
+            font-weight: bold;
+        }
+
+        .escanor h2 {
+            font-size: 34px;
+        }
+
+        .escanor p {
+            font-size: 24px;
+        }
+
+        .escanor img {
+            border: 5px solid #ff6200;
+        }
+
+       .gojo {
+            background-color: #7d1aff;
+            color: #9021ff;
+            border-color: #45B0D2;
+        }
+
+        .gojo h2,
+        .gojo p {
+            color: #3191ff;
+            font-weight: bold;
+        }
+
+        .gojo h2 {
+            font-size: 34px;
+        }
+
+        .gojo p {
+            font-size: 24px;
+        }
+
+        .gojo img {
+            border: 5px solid #45B0D2;
+        } 
+
+        .homem-aranha {
+            background-color: #0645AD;
+            color: #FF1E1E;
+            border-color: #00AEEF;
+        }
+
+        .homem-aranha h2,
+        .homem-aranha p {
+            color: #FF1E1E;
+            font-weight: bold;
+        }
+
+        .homem-aranha h2 {
+            font-size: 34px;
+        }
+
+        .homem-aranha p {
+            font-size: 24px;
+        }
+
+        .homem-aranha img {
+            border: 5px solid #00AEEF;
+        }
+
+        .footer-text {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cards de personagens</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Hoje irei fazer Cards dos meus personagens favoritos</h2>
+        </section>
+
+        <article class="card michael-kaiser">
+            <h2>Michael Kaiser</h2>
+            <img src="Imagens/Michael.Kaiser.webp" alt="Michael Kaiser" width="400" height="250">
+            <p>Michael Kaiser o imperador do Bastard München e um dos 11 new gen do blue lock</p>
+        </article>
+
+        <article class="card escanor">
+            <h2>Escanor</h2>
+            <img src="Imagens/Escanor.jpg" alt="Escanor" width="400" height="250">
+            <p>Escanor, aquele que está no topo de todas as raças, dos sete pecados capitais, o pecado do orgulho</p>
+        </article>
+
+        <article class="card gojo">
+            <h2>Gojo Satoru</h2>
+            <img src="Imagens/gojo.webp" alt="Gojo Satoru" width="400" height="250">
+            <p>Satoru Gojo, o feiticeiro mais forte da era moderna e entre o céu e a terra ele é o mais honrado</p>
+        </article>
+
+        <article class="card homem-aranha">
+            <h2>Homem-Aranha</h2>
+            <img src="Imagens/homem.aranha.jpg" alt="Homem-Aranha" width="400" height="250">
+            <p>O Homem-Aranha, o nosso querido cabeça de teia e amigo da vizinhança que sempre salva o dia</p>
+        </article>
+    </main>
+    <footer>
+        <p class="footer-text">Sitezinho de hoje foram uns cards bobos dos meus personagens favoritos, espero que tenham
+            gostado, até a proxima guys :)</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim escolar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f0fbff;
+            color: #000000;
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 15px;
+        }
+
+        .grid-materias {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .menu-lateral {
+            border: 2px solid #000000;
+            padding: 15px;
+            color: #ffffff;
+            background-color: #000000;
+        }
+
+        .grid-materias > * {
+            border: 2px solid #000000;
+            padding: 15px;
+        }
+
+        .matematica {
+            background-color: #aaff95;
+        }
+
+        .portugues {
+            background-color: #ff9292;
+        }
+
+        .geografia {
+            background-color: #bc81ff;
+        }
+
+        .historia {
+            background-color: #fff388;
+        }
+
+        .ingles {
+            background-color: #86cfff;
+        }
+
+        .footer-text {
+            font-size: 30px;
+            color: #000000;
+            text-align: center;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid-materias {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-materias {
+                grid-template-columns: 1fr;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="layout">
+    <aside class="menu-lateral">
+        <h2>Menu lateral</h2>
+        <p>Início</p>
+        <p>Boletim</p>
+        <p>Aulas</p>
+        <p>Suporte</p>
+    </aside>
+
+    <main>
+        <h1>Boletim escolar</h1>
+
+        <section class="grid-materias">
+            <div class="matematica">
+                <h2>Matemática</h2>
+                <p>Nota: 8,7</p>
+                <p>Frequência: 92%</p>
+            </div>
+
+            <div class="portugues">
+                <h2>Português</h2>
+                <p>Nota: 9,1</p>
+                <p>Frequência: 96%</p>
+            </div>
+
+            <div class="geografia">
+                <h2>Geografia</h2>
+                <p>Nota: 7,8</p>
+                <p>Frequência: 89%</p>
+            </div>
+
+            <div class="historia">
+                <h2>História</h2>
+                <p>Nota: 8,4</p>
+                <p>Frequência: 94%</p>
+            </div>
+
+            <div class="ingles">
+                <h2>Inglês</h2>
+                <p>Nota: 9,5</p>
+                <p>Frequência: 98%</p>
+            </div>
+        </section>
+    </main>
+</div>
+<footer>
+    <p class="footer-text">Sitezinho de hoje guys :)</p>
+</footer>
+</body>
+</html>

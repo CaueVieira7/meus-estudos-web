@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dando opinião sobre meus jogos favoritos</title>
+    <style>
+        a {
+            color: #0900E8
+        }
+
+        h1,
+        h2 {
+            color: #faed78;
+            font-size: 35px;
+        }
+
+        p {
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        a:hover {
+            background-color: #1800FF;
+        }
+
+        li,
+        ul {
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+
+        li {
+            line-height: 2.0;
+            margin-bottom: 15px;
+        }
+
+        .Hollow-Knight p,
+        .Hollow-Knight h2 {
+            color: #315aff;
+        }
+
+        .Terraria p,
+        .Terraria h2 {
+            color: #58fa2f;
+        }
+
+        .Celeste p,
+        .Celeste h2 {
+            color: #62eafc;
+        }
+
+        .Silk-Song p,
+        .Silk-Song h2 {
+            color: #fc4315;
+        }
+
+        .footer-text {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Irei falar um pouco sobre meus jogos favoritos</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Explicando o site de hoje</h2>
+            <p>Hoje vou falar sobre o que eu acho dos meus jogos favoritos, explicando do porque eu gosto deles,
+                primeiras impressões, e o que eu não gostei.</p>
+        </section>
+        <article class="Hollow-Knight">
+            <h2><strong>HollowKnight</strong></h2>
+            <img src="Imagens/HK.logo.jpg" alt="Imagem ilustrativa do Hollow Knight">
+            <p><strong>Minha primeira impressão foi positiva, eu estava vendo meu amigo jogar pela transmissão dele e o
+                    estilo de jogo me agradou em muito, com as mecanicas de dash, combate, magias, amuletos e as artes
+                    do ferrão</strong></p>
+            <p><strong>O design do jogo foi algo que me chamou atenção desde que eu vi a capa do jogo na loja do PS4, um
+                    design mais sombrio mas em certas situações ele e brilhante e bem detalhado e a trilha sonora
+                    dispensa comentários, cada música combina perfeitamente com o cénario que você está</strong></p>
+            <p><strong>Além dele ser bem difícil, o jogo também oferece uma narrativa misteriosa e uma história rica em
+                    detalhes, então a cada progresso no jogo você aos poucos vai descobrindo a história do reino que o
+                    jogo se passa</strong></p>
+            <p><strong>Uma coisa que eu nao gostei do jogo é a falta de indicações do que fazer depois de concluir um
+                    objetivo, e muito fácil se perde no progresso do jogo e não saber qual caminho seguir ou o que fazer
+                    em seguida</strong></p>
+            <p><strong>Mas tirando isso o jogo sinceramente é perfeito, minha nota pra ele é 10</strong></p>
+        </article>
+
+        <article class="Terraria">
+            <h2><strong>Terraria</strong></h2>
+            <img src="Imagens/terraria.logo.webp" alt="Imagem ilustrativa do Terraria">
+            <p><strong>Quando eu instalei Terraria eu achei que seria um jogo mais na vibe do stardew valley, mas na
+                    verdade ele é um RPG sandbox de aventura (e um bullethell também)</strong></p>
+            <p><strong>Designs pixelados sempre me chamarão muita atenção já que a propsta de muitos jogos assim eram
+                    boas e com Terraria não foi diferente, mesmo sendo pixelado e simples o jogo tem seu charme e a
+                    trilha sonora e bem imersiva com a situação que você está</strong></p>
+            <p><strong>Por mais que seja um jogo simples e 2D o Terraria e um jogo muito difícil com boss fights muito
+                    fodas tipo e tem algumas que são um bullethell do caralho, sem contar que o farm do jogo e
+                    relaxante</strong></p>
+            <p><strong>O Terraria cai no mesmo problema de Hollow Knight, não tem uma indicação clara do que você tem
+                    fazer para progredir no jogo, e nem quais equipamentos e armas deve fazer, você acaba tendo que
+                    depender bastante de guias onlines</strong></p>
+            <p><strong>Pra mim Terraria e um jogo incrivel mesmo sendo simples, minha nota pra ele é 10 porque me marcou
+                    muito</strong></p>
+        </article>
+
+        <article class="Celeste">
+            <h2><strong>Celeste</strong></h2>
+            <img src="Imagens/Celeste.logo.webp" alt="Imagem ilustrativa do Celeste">
+            <p><strong>Eu comecei a jogar Celeste por recomendação de um amigo meu mas eu não gostei de cara, eu tinha
+                    achado meio simples demais mas quando eu vi o vídeo do save manual falando sobre o jogo eu me animei
+                    bastante pra joga</strong></p>
+            <p><strong>Como eu disse antes, jogos pixelados sempre me chamaram atenção e o design de celeste e a trilha
+                    sonora me agradaram muito por serem fofos e relaxantes, a experiência de jogar enquanto ouve a
+                    trilha sonora é incrível</strong></p>
+            <p><strong>O jogo no papel era só pra ser um jogo de plataforma/parkour com dash e wall jump com uma
+                    dificuldade alta mas por mais simples que seja o tanto de mecânicas que existem dentro do jogo e
+                    algo que deixaria facilmente qualquer um por horas pra aprender todas ou a maioria</strong></p>
+            <p><strong>O unico problema que eu tive com Celeste foi eu ter afundado o meu X do controle e ter dores no
+                    dedo pela quantidade de vezes que eu cliquei kkk</strong></p>
+            <p><strong>Celeste me rendeu uma experiência incrível, minha nota pra ele é 9.5</strong></p>
+        </article>
+
+        <article class="Silk-Song">
+            <h2><strong>Silk Song</strong></h2>
+            <img src="Imagens/SilkSong.logo.webp" alt="Imagem ilustrativa do Silk Song">
+            <p><strong>Por ser a continuação de Hollow Knight eu já estava com a expectativa muito alta, e como esperado
+                    o Silk Song não decepcionou em nada, o combate continuava igual e mais rico ainda em mecanicas novas
+                    e a boss fights impecáveis</strong></p>
+            <p><strong>Silk Song tem o mesmo design de Hollow Knight mas diferente de hollow knight o Silk Song tem
+                    cores mais quentes e vibrantes e o Hollow Knight mais frias, e a trilha sonora continuo perfeita
+                    igual o Hollow Knight</strong></p>
+            <p><strong>O Silk Song manteu as mesmas mecânicas do Hollow Knight, e adicionou ainda mais mecânicas,
+                    adicionaram estilos de luta, corrida, habilidades extras para a Hornet e skills unicas dela que
+                    tinhamos visto no Hollow Knight quando enfretamos ela</strong></p>
+            <p><strong>Mesmo sendo uma continuação de Hollow Knight repetiram o mesmo erro de não ter uma indicação
+                    clara do que você tem fazer para progredir no jogo, sem contar que o dinheiro do jogo e meio dificil
+                    de farmar ja que não existe um acessório que te traz o dinheiro dos inimigos mortos igual no Hollow
+                    Knight</strong></p>
+            <p><strong>Silk Song sem dúvida foi uma continuação muito boa pra Hollow Knight e eu amei, minha nota pra
+                    ele é 10</strong></p>
+        </article>
+    </main>
+
+    <footer>
+        <p class="footer-text"><strong>Bom por hoje é so isso, até outro dia :)</strong></p>
+        <p class="footer-text"><strong>Feito Por: Cauê</strong></p>
+    </footer>
+</body>
+
+</html>

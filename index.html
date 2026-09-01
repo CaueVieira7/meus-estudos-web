@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            font-family: 'poppins', sans-serif;
+        }
+
+        .card-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 25px;
+            margin: 20px auto;
+            border: 4px solid #a5b5fc;
+            background-color: #3c6ffc;
+            width: 500px;
+            transition: transform 0.6s ease-in-out, box-shadow 0.6s ease-in-out;
+        }
+
+        .card-container:hover {
+            transform: translateY(-7px) scale(1.02);
+            box-shadow: 0 0 15px #ffe600,
+                        0 0 35px #ffe600;
+            border-color: #ffe600;
+        }
+
+        .card-container h2,
+        .card-container p {
+            color: #ffe600;
+            text-shadow:
+                -1px 0px #000,
+                0px -1px #000,
+                1px 1px #000;
+        }
+
+        .card-container h2 {
+            font-size: 30px;
+        }
+
+        .card-container p {
+            font-size: 25px;
+        }
+
+        .card-container img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            border: 4px solid #fae634;
+        }
+
+        @media (max-width:480px) {
+            .card-container {
+                padding: 15px;
+                margin: 10px;
+            }
+        }
+
+        .footer-text {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cardzinho de desafio do kaiser</h1>
+    </header>
+    <main>
+        <section class="card-container">
+            <h2>Michael Kaiser</h2>
+            <img src="Imagens/Michael.Kaiser.webp" alt="Imagem do Michael Kaiser">
+            <p>O imperador do Bastard muchen e maior rival do Isagi Yoichi</p>
+        </section>
+    </main>
+    <footer class="footer-text">
+        <p>Sitezinho de hoje foi so um teste</p>
+    </footer>
+</body>
+
+</html>

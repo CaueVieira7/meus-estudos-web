@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colocando animações nos meus cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: sans-serif;
+            text-align: center;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        h1 {
+            color: #ffe817;
+        }
+
+        .card {
+            padding: 20px;
+            margin: 50px;
+            border: 5px solid #3b4efc;
+            background-color: #000000;
+            color: #ffffff;
+            transition: transform 0.6s ease,
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+        }
+
+        .michael-kaiser {
+            background-color: #2d5ef0;
+            color: #Ffffff;
+            border-color: #97a7f8;
+        }
+
+        .michael-kaiser img {
+            border: 5px solid #FFD700;
+        }
+
+        .michael-kaiser h2 {
+            color: #FFD700;
+            font-size: 34px;
+            font-weight: bold;
+        }
+
+        .michael-kaiser p {
+            color: #FFD700;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .homem-aranha {
+            background-color: #0645AD;
+            color: #FF1E1E;
+            border-color: #00AEEF;
+        }
+
+        .homem-aranha h2,
+        .homem-aranha p {
+            color: #FF1E1E;
+            font-weight: bold;
+        }
+
+        .homem-aranha h2 {
+            font-size: 34px;
+        }
+
+        .homem-aranha p {
+            font-size: 24px;
+        }
+
+        .homem-aranha img {
+            border: 5px solid #FF1E1E;
+        }
+
+        .gojo {
+            background-color: #0077ff;
+            border-color: #45B0D2;
+        }
+
+        .gojo h2,
+        .gojo p {
+            color: #b46bfc;
+            font-weight: bold;
+        }
+
+        .gojo h2 {
+            font-size: 34px;
+        }
+
+        .gojo p {
+            font-size: 24px;
+        }
+
+        .gojo img {
+            border: 5px solid #9301f5;
+        }
+
+        .footer-text {
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        .michael-kaiser:hover {
+            border-color: #FFD700;
+            box-shadow: 0 0 15px #FFD700,
+                        0 0 35px #FFD700;
+        }
+
+        .gojo:hover {
+            border-color: #9301f5;
+            box-shadow: 0 0 15px #9301f5,
+                        0 0 35px #9301f5;
+        }
+
+        .homem-aranha:hover {
+            border-color: #FF1E1E;
+            box-shadow: 0 0 15px #ff1e1e,
+                        0 0 35px #ff1e1e;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cards de personagens</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Dando um estilo para os meus cards</h2>
+        </section>
+
+        <section class="card-container">
+            <article class="card michael-kaiser">
+                <h2>Michael Kaiser</h2>
+                <img src="Imagens/Michael.Kaiser.webp" alt="Michael Kaiser" width="400" height="250">
+                <p>Michael Kaiser o imperador do Bastard München e um dos 11 new gen do blue lock</p>
+            </article>
+
+            <article class="card gojo">
+                <h2>Satoru Gojo</h2>
+                <img src="Imagens/Gojo.webp" alt="Satoru Gojo" width="400" height="250">
+                <p>Satoru Gojo, o feiticeiro mais forte da era moderna e entre o céu e a terra ele é o mais honrado</p>
+            </article>
+
+            <article class="card homem-aranha">
+                <h2>Homem-Aranha</h2>
+                <img src="Imagens/homem.aranha.jpg" alt="Homem-Aranha" width="400" height="250">
+                <p>O Homem-Aranha, o nosso querido cabeça de teia e amigo da vizinhança que sempre salva o dia</p>
+            </article>
+        </section>
+        </main>
+        <footer>
+            <p class="footer-text">Hoje ficou muito foda o site ^^</p>
+        </footer>
+    </body>
+
+</html>

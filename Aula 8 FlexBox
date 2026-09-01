@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquete de Jogos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #f5c542;
+        }
+
+        .container-lado-a-lado {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .caixa-formulario,
+        .caixa-tabela {
+            padding: 25px;
+            border: 3px solid #f5c542;
+            background-color: #1a1a1a;
+            width: 380px;
+            text-align: left;
+        }
+
+        .caixa-formulario h2,
+        .caixa-tabela h2 {
+            text-align: center;
+            color: #f5c542;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+        }
+
+        input[type="submit"] {
+            background-color: #f5c542;
+            color: #000000;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid #f5c542
+        }
+
+        th,
+        td {
+            border: 1px solid #f5c542;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #242424;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 8px;
+        }
+
+        .checkbox-group label {
+            display: inline;
+            align-items: center;
+            gap: 5px;
+            margin: 0;
+        }
+
+        .checkbox-group input[type="radio"] {
+            width: auto;
+            margin: 0;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+        }
+        .footer-text {
+            font-size: 25px;
+            color: #f5c542;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Enquete de Jogos</h1>
+    </header>
+
+    <main>
+        <div class="container-lado-a-lado">
+
+            <section class="caixa-formulario">
+                <h2>Mini formulário</h2>
+                <form>
+                    <label for="nome">Seu nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                    <label for="jogo">Jogo favorito:</label>
+                    <input type="text" id="jogo" name="jogo" placeholder="Digite seu jogo favorito" required>
+
+                    <label for="nota">Nota do jogo (0 a 10):</label>
+                    <input type="number" id="nota" name="nota" min="0" max="10" placeholder="Digite uma nota de 0 a 10"
+                        required>
+                    <label for="ja">Já jogou este jogo?</label>
+
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="radio" id="sim" name="jogou" value="sim" required>
+                            Sim
+                        </label>
+
+                        <label>
+                            <input type="radio" id="nao" name="jogou" value="nao" required>
+                            Não
+                        </label>
+                    </div>
+
+                    <label for="comentario">deixe aqui seu comentário</label>
+                    <textarea id="comentario" name="comentario" rows="3" placeholder="comente um pouco aqui..."
+                        required></textarea>
+
+                    <input type="submit" value="Enviar Formulário">
+                </form>
+
+            </section>
+
+            <section class="caixa-tabela">
+                <h2>Minhas notas até agora</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jogo</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>HollowKnight</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Terraria</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Celeste</td>
+                            <td>9.5</td>
+                        </tr>
+                        <tr>
+                            <td>SilkSong</td>
+                            <td>9.9</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Menções honrosas</h2>
+
+                <table>
+                    <thead>
+                        <Tr>
+                            <th>Jogos</th>
+                            <th>Nota</th>
+                        </Tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DeadLock</td>
+                            <td>9.4</td>
+                        </tr>
+                        <tr>
+                            <td>Minecraft</td>
+                            <td>9.9</td>
+                        </tr>
+                        <tr>
+                            <td>Brawlhalla</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>Roblox</td>
+                            <td>8.8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p class="footer-text">Sitezinho de hoje guys ^^</p>
+    </footer>
+</body>
+
+</html>

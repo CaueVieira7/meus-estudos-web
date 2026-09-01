@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendendo a fazer um formulário</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Cadastro de Jogador</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulário de cadastro como jogador</h2>
+            <p>Preencha o formulário abaixo para se cadastrar como jogador em nosso site.</p>
+        </section>
+
+        <section>
+
+            <form>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Seu Nome" required>
+                <br><br>
+
+                <label for="nickname">Seu nickname no jogo:</label>
+                <input type="text" id="nickname" name="nickname" placeholder="Ex: lordmaster..." required>
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Ex: seu.email@exemplo.com" required>
+                <br><br>
+
+                <label for="idade">Idade (mínima 18):</label>
+                <input type="number" id="idade" name="idade" placeholder="Ex: sua idade" min="18" required>
+                <br><br>
+
+                <label for="jogo">Jogo favorito:</label>
+                <input type="text" id="jogo" name="jogo" placeholder="Ex: League of Legends">
+                <br><br>
+
+                <label for="genero">Gênero de jogo favorito:</label>
+                <select id="genero" name="genero">
+                    <option value="ação">Ação</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="rpg">RPG</option>
+                    <option value="esportes">Esportes</option>
+                    <option value="fightgame">Fighting Game</option>
+                </select>
+                <br><br>
+
+                <label for="plataforma">Plataforma em qual joga:</label>
+                <input type="radio" id="pc" name="plataforma" value="PC">
+                <label for="pc">PC</label>
+
+                <input type="radio" id="playstation" name="plataforma" value="PlayStation">
+                <label for="playstation">PlayStation</label>
+
+                <input type="radio" id="xbox" name="plataforma" value="Xbox">
+                <label for="xbox">Xbox</label>
+                <br><br>
+
+                <label for="tempo">A quanto anos joga?</label>
+                <input type="text" id="tempo" name="tempo" placeholder="Ex: 2 anos">
+                <br><br>
+
+                <label for="sobre-voce">Sobre você:</label>
+                <textarea id="sobre-voce" name="sobre-voce" rows="4"
+                    placeholder=" Escreva aqui um pouco sobre você..."></textarea>
+                <br><br>
+                <input type="submit" value="Cadastrar">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <h2>Informações importantes</h2>
+        <p>Certifique-se de preencher todos os campos obrigatórios e veja se suas informações estão corretas antes de
+            enviar o formulário.</p>
+        <p>Após o envio, você receberá um email de confirmação com mais informações sobre como participar da nossa
+            comunidade de jogadores.</p>
+        <p>Feito com carinho para jogadores de todo o mundo!!🎮</p>
+    </footer>
+</body>
+
+</html>

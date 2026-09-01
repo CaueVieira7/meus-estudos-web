@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Falando sobre meus jogos favoritos</title>
+<style>
+    a {
+         color: white
+    }
+</style>
+</head> 
+<body style="background-color: black; color: white;">  
+ <h1>listando meus jogos favoritos</h1>
+ <ul>
+    <li><strong>Deadlock</strong></li>
+    <li><strong>Terraria</strong></li>
+    <li><strong>Minecraft</strong></li>
+    <li><strong>HollowKnight</strong></li>
+    <li><strong>Brawlhalla</strong></li>
+ </ul>
+ <p>quer saber aonde instalar eles? tirando o Minecraft voce pode instalar todos eles pela steam. <strong><a href="https://store.steampowered.com/?l=portuguese">Clique aqui</a></strong></p>
+<h2>Aqui esta a logo de cada um para voce pode identificar melhor</h2>
+
+<p><strong>Logo do Deadlock</strong></p>
+<img src="deadlock.webp" alt="logo do deadlock">
+
+<p><strong>Logo do HollowKnight</strong></p>
+<img src="hk logo.webp" alt="Logo do HollowKnight">
+
+<p><strong>Logo do Terraria</strong></p>
+<img src="terraria logo.webp" alt="Logo do Terraria">
+
+<p><strong>Logo do Minecraft</strong></p>
+<img src="Minecraft logo.webp" alt="Logo do Minecraft">
+
+<p><strong>Logo do Brawlhalla</strong></p>
+<img src="Brawlhalla logo.webp" alt="Logo do Brawlhalla">
+
+<h2>E aqui esta o link que vai redirecionar voce para cada lugar de donwload de cada jogo</h2>
+<ul>
+<li>Deadlock <strong><a href="https://store.steampowered.com/app/1422450/Deadlock/">Clique aqui</a></strong></li>
+<li>Terraria <strong><a href="https://store.steampowered.com/app/105600/Terraria/">Clique aqui</a></strong></li>
+<li>Minecraft <strong><a href="https://www.minecraft.net/pt-br/download">Clique aqui</a></strong></li>
+<li>HollowKnight <strong><a href="https://store.steampowered.com/app/367520/Hollow_Knight/">Clique aqui</a></strong></li>
+<li>Brawlhalla <strong><a href="https://store.steampowered.com/app/291550/Brawlhalla/">Clique aqui</a></strong></li>
+</ul>
+<h2><strong>E por hoje e so isso :)</strong></h2>
+</body>
+</html>

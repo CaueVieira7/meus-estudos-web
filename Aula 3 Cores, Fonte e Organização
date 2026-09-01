@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dando estilo pro meu site</title>
+    <style>
+        a {
+                color: #0900E8
+            }
+        h1, h2 {
+            color: #C20000;
+             font-size: 35px;
+        }
+        p {
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+        body {
+            background-color:#000000;
+             font-family: 'Poppins', sans-serif;
+             font-variant: small-caps;
+             text-align: center;
+        }
+        a:hover {
+            background-color:#1800FF;
+        }
+        li, ul {
+            color: #FFFFFF;
+            font-size: 20px;
+        }
+        li {
+    line-height: 2.0;
+    margin-bottom: 15px;
+}
+    </style>
+</head>
+<body>
+<h1><strong>Falando sobre meus Personagens favoritos</strong></h1>
+<p>Hoje eu vou falar um pouco sobre meus personagens favortos, vão ser 5 e vou falar o que gosto neles e porque gosto deles.</p>
+<h2 style="color: #5405A8"><strong>Satoru Gojo</strong></h2>
+<img src="Imagens/gojo.webp" alt="Imagem ilustrativa do Gojo">
+<ul>
+<li><strong>Porque eu gosto dele ? alem de ser um personagem muito bem escrito e complexo ele tem uma vibe brincalhona mesmo sendo um monstro em força e podendo acabar com qualquer luta em segundos</strong></li>
+<li><strong>Ele tambem ensina as pessoas que estão assistindo como é a sensação de ser tao forte/bom e ser sozinho por isso, e isso me cativou quando assisti JJK</strong></li>
+<li><strong>E o design dele e algo muito marcante, a venda, os olhos e o cabelo são as coisas mais marcantes dele, sem mencionar o poder dele que dispensa comentario</strong></li>
+</ul>
+<h2 style="color: #0000B3;"><strong>Michael Kaiser</strong></h2>
+<img src="Imagens/Michael.Kaiser.webp" alt="Imagem ilustrativa do Kaiser">
+<ul>
+<li><strong>Bom eu gosto do Kaiser porque ele é um personagem egocentrico mas tem uma personalidade forte e um desenvolvimento muito interessante que honestamente me fez simpatizar com ele</strong></li>
+<li><strong>Além disso o design dele e bem chamativo o cabelo dele ser loiro mas com as pontas azuladas, e o ponto forte do design é a sua tatuagem de rosa azul que vai do pescoço até a mão dele</strong></li>
+<li><strong>E por ultimo o seu passado, o fato dele ter problemas por parte paterna e eu simpatizar com isso ele cresce sendo rejeitado e tratado mal fez ele ter essa personalidade arrogante e maldosa, mas no fundo ele e assim porque tem medo</strong></li>
+</ul>
+<h2 style="color: #FF9700;"><strong>Escanor</strong></h2>
+<img src="Imagens/Escanor.jpg" alt="Imagem ilustrativa do Escanor">
+<ul>
+<li><strong>O Escanor foi um dos meus primeiros personagens favoritos, o fato dele de noite ser uma pessoa fraca e humilde e de dia com uma força mosntruosa e uma personalidade orgulhosa e marcante me fez ter muita admiração pelo personagem</strong></li>
+<li><strong>As falas dele são muito marcantes e impactantes, tipo o "quem disse isso?" e o "sou aquele que está no topo de todas as raças, dos sete pecados capitais, pecado do orgulho eu me chamo Escanor", essas falas me fizeram amar o personagem</strong></li>
+<li><strong>E sua morte foi um dos momentos mais emocionantes do personagem, mesmo ele tendo perdido seus poderes, ele implorou pra telos de volta so pra salvar e ajudar seus companheiros mesmo que isso o matasse</strong></li>
+</ul>
+<h2 style="color: #BF0000"><strong>Homem Aranha</strong></h2>
+<img src="Imagens/homem.aranha.jpg" alt="Imagem ilustrativa do Homem Aranha">
+<ul>
+<li><strong>O Homem Aranha é um dos meus personagens favoritos e o primeiro super heroi que eu vi, ele tem uma personalidade complexa e desenvolvimento interessante que me fez simpatizar com ele</strong></li>
+<li><strong>Além disso o design dele e bem chamativo, o traje dele é muito reconhecível e o seu poder de aranha me chamou muito a atenção quando era criança</strong></li>
+<li><strong>E por ultimo o seu passado, o fato dele ter sido um jovem normal e se tornar um herói e teve que criar responsabilidade pra usar seus poderes mez adirar o personagem</strong></li>
+</ul>
+<h2 style="color: #149C13;"><strong>Pastis</strong></h2>
+<img src="Imagens/pastis.jpg" alt="Imagem ilustrativa do Pastis">
+<ul>
+<li><strong>O Pastis é de um manhwa chamado "Player" foi o primeiro manhwa que eu li e o Pastis de longe foi o personagem que mais me agradou em design, esse capuz dele parecendo uma espécie de cabelo e algo marcante no design e a roupa e algo simples mas chamativo pela cor</strong></li>
+<li><strong>O poder dele sem sobra de duvidas é o meu favorito por ser complexo, resumidamente e uma habilidade de copia mas antes ele tem que entender a habilidade que vai copiar e se ela for condicional ele tem que satisfazer as condições e por ultimo ganhar do oponente no jokên po</strong></li>
+<li><strong>E a personalidade brincalhona e zoeira dele no manhwa foi algo muito engraçado e carismatico já que toda situação que era possível ele fazia piada ou zuava algum personagem e gerava um momento muito cômico e memorável</strong></li>
+</ul>
+<h1><strong>Bom por hoje foi só isso, até outro dia :)</strong></h1>
+</body>
+</html>

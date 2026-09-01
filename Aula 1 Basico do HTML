@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meu Primeiro Site</title>
+
+</head>
+<body>
+    <h1>Ola pessoal, esse é meu primeiro site em HTML</h1>
+<h2>Minha apresentação</h2>
+<p>Meu nome é Cauê, tenho 18 anos e estou começando na área de desenvolvimento web e TI no geral</p>
+
+<h2>Meus jogos favoritos</h2>
+<p>Os jogos que eu mais gosto são: Deadlock, Terraria, Minecraft, HollowKnight e Brawlhalla</p>
+
+<h2>Meu treino na Academia</h2>
+<p>Eu treino de segunda a sexta e ja estou na minha quarta semana consecutiva treinando, pretendo ter um shape legal ate o fim do ano</p>
+
+<h2>Meu objetivo na área de TI</h2>
+<p>Além de ser um sonho meu desde pequeno eu quero me tornar um grande profissional na área de TI, talvez virando até um futuro CIO haha, quero dar orgulho a minha mae e uma boa vida a minha namorada, sempre gosto de aprender qualquer coisa sobre TI</p>
+
+</body>
+</html>

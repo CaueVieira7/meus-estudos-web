@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Jogos</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border-color: #ffffff;
+        }
+
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #000000;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        thead {
+            background-color: #1a1a1a;
+        }
+
+        tbody tr {
+            font-weight: bold;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        .hollow-knight {
+            background-color: #164e86;
+            color: #ffffff;
+        }
+
+        .terraria {
+            background-color: #6b4f2a;
+            color: #ffffff;
+        }
+
+        .celeste {
+            background-color: #00a6c7;
+            color: #ffffff;
+        }
+
+        .silk-song {
+            background-color: #8b1e3f;
+            color: #ffffff;
+        }
+
+        tbody tr:hover {
+            filter: brightness(1.2);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Tabela dos meus Jogos</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Lista dos meus Jogos favoritos</h2>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Nome do Jogo</th>
+                        <th>Gênero</th>
+                        <th>Nota</th>
+                        <th>Horas Jogadas</th>
+                        <th>Plataforma</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="hollow-knight">
+                        <td>Hollow Knight</td>
+                        <td>Ação/Aventura</td>
+                        <td>9.5</td>
+                        <td>55,8</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr class="terraria">
+                        <td>Terraria</td>
+                        <td>Aventura/Survival</td>
+                        <td>9.0</td>
+                        <td>434,5</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr class="celeste">
+                        <td>Celeste</td>
+                        <td>Plataforma/Puzzle</td>
+                        <td>9.8</td>
+                        <td>16,6</td>
+                        <td>PC</td>
+                    </tr>
+                    <tr class="silk-song">
+                        <td>Silk Song</td>
+                        <td>Ação/Aventura</td>
+                        <td>9.7</td>
+                        <td>32</td>
+                        <td>PC</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+    <footer>
+        <h2 class="footer-text">Sitezinho de Hoje Guys :)</h2>
+    </footer>
+</body>
+
+</html>
