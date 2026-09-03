@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando o DOM</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            justify-content: center;
+            text-align: center;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        .card {
+            border: 4px solid;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 25px;
+            margin: 20px auto;
+            width: 400px;
+            transition: transform 0.6s ease-in-out,
+                box-shadow 0.6s ease-in-out,
+                border-color 0.6s ease-in-out;
+        }
+
+        .card.gojo {
+            background-color: #126be7;
+            border-color: #ffffff;
+        }
+
+        .card.gojo h2,
+        .card.gojo p {
+            color: #903fed;
+        }
+
+        .card.gojo h2 {
+            font-size: 30px;
+        }
+
+        .card.gojo p {
+            font-size: 25px;
+        }
+
+        .card.gojo img {
+            border: 4px solid #8922ff;
+            margin: 0 auto;
+            display: block;
+            width: 100%;
+        }
+
+        .card.gojo:hover {
+            transform: translateY(-7px) scale(1.03);
+            box-shadow: 0 0 15px #8922ff,
+                0 0 35px #8922ff;
+            border-color: #8922ff;
+        }
+
+        .card.kaiser {
+            background-color: #0d2c6b;
+            border-color: #ffffff;
+        }
+
+        .card.kaiser h2,
+        .card.kaiser p {
+            color: #ffd700;
+        }
+
+        .card.kaiser h2 {
+            font-size: 30px;
+        }
+
+        .card.kaiser p {
+            font-size: 25px;
+        }
+
+        .card.kaiser img {
+            border: 4px solid #ffd700;
+            margin: 0 auto;
+            display: block;
+            width: 100%;
+        }
+
+        .card.kaiser:hover {
+            transform: translateY(-7px) scale(1.03);
+            box-shadow: 0 0 15px #ffd700,
+                0 0 35px #ffd700;
+            border-color: #ffd700;
+        }
+
+        .footer-text {
+            font-size: 30px
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 20px;
+                margin: 15px auto;
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 15px;
+                margin: 10px auto;
+                width: 85%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hoje eu irei manipular o DOM</h1>
+    </header>
+    <main>
+        <section class="card gojo" id="card-personagem">
+            <h2 id="nome">Satoru Gojo</h2>
+            <img id="imagem"src="Imagens/gojo.webp" alt="Imagem do Satoru Gojo">
+            <p id="descricao">Satoru Gojo, o feiticeiro mais forte da era moderna e entre o céu e a terra ele é o mais honrado</p>
+            <button onclick="trocarCard()">Trocar de Card</button>
+        </section>
+    </main>
+    <footer class="footer-text">
+        <p>Hoje ficou muito bom o site :)</p>
+    </footer>
+    <script>
+        let mostranGojo = true;
+
+        function trocarCard() {
+            let card = document.getElementById("card-personagem");
+            let nome = document.getElementById("nome");
+            let imagem = document.getElementById("imagem");
+            let descricao = document.getElementById("descricao");
+
+            if (mostranGojo) {
+                nome.textContent = "Michael Kaiser";
+                imagem.src = "Imagens/Michael.Kaiser.webp";
+                descricao.textContent = "O imperador do Bastard München e um dos 11 new gen do blue lock e o maior rival de Isagi Yoichi";
+                card.classList.remove("gojo");
+                card.classList.add("kaiser");
+            } else {
+                nome.textContent = ("Satoru Gojo");
+                imagem.src = "Imagens/gojo.webp";
+                descricao.textContent = "Satoru Gojo, o feiticeiro mais forte da era moderna e entre o céu e a terra ele é o mais honrado";
+                card.classList.remove ("kaiser");
+                card.classList.add ("gojo");
+            }
+
+            mostranGojo = !mostranGojo;
+        }
+    </script>
+</body>
+
+</html>
