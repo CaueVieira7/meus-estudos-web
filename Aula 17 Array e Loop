@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array e loops</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-family: 'poppins', sans-serif;
+            background-color: #000;
+            text-align: center;
+            color: #fff;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 25px;
+        }
+
+        .card {
+            min-width: 0;
+            border: 4px solid #fff;
+            padding: 15px;
+            transition: transform 0.6s ease-in-out,
+                box-shadow 0.6s ease-in-out,
+                border-color 0.6s ease-in-out;
+        }
+
+        .card h2 {
+            font-size: 30px;
+        }
+
+        .card p {
+            font-size: 25px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            border: 4px solid;
+            margin: 0 auto;
+        }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        .card.hollow-knight {
+            background-color: #1967b5;
+        }
+
+        .card.hollow-knight img {
+            border-color: #71b8fe;
+        }
+
+        .card.hollow-knight h2,
+        .card.hollow-knight p {
+            color: #71b8fe;
+        }
+
+        .card.silk-song {
+            background-color: #ff2c2c;
+        }
+
+        .card.silk-song img {
+            border-color: #ff7037;
+        }
+
+        .card.silk-song h2,
+        .card.silk-song p {
+            color: #ff7037;
+        }
+
+        .card.celeste {
+            background-color: #5887ff;
+        }
+
+        .card.celeste img {
+            border-color: #7eeffb;
+        }
+
+        .card.celeste h2,
+        .card.celeste p {
+            color: #7eeffb;
+        }
+
+        .card.terraria {
+            background-color: #805220;
+        }
+
+        .card.terraria img {
+            border-color: #07f007;
+        }
+
+        .card.terraria h2,
+        .card.terraria p {
+            color: #07f007;
+        }
+
+        .card.hollow-knight:hover {
+            box-shadow: 0 0 15px #71b8fe,
+                0 0 35px #71b8fe;
+            border-color: #71b8fe;
+        }
+
+        .card.silk-song:hover {
+            box-shadow: 0 0 15px #ff7037,
+                0 0 35px #ff7037;
+            border-color: #ff7037;
+        }
+
+        .card.celeste:hover {
+            box-shadow: 0 0 15px #7eeffb,
+                0 0 35px #7eeffb;
+            border-color: #7eeffb;
+        }
+
+        .card.terraria:hover {
+            box-shadow: 0 0 15px #07f007,
+                0 0 35px #07f007;
+            border-color: #07f007;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .card h2 {
+                font-size: 24px;
+            }
+
+            .card p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card-container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+
+            .card h2 {
+                font-size: 22px;
+            }
+
+            .card p {
+                font-size: 16px;
+            }
+        }
+
+        .footer-text {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Hoje irei organizar listas usando array e loop</h1>
+    </header>
+
+    <main>
+        <section class="card-container" id="container-jogos"></section>
+    </main>
+    <footer class="footer-text">
+        <p>Hoje o site deu um trabalho mas saiu kkkk :)</p>
+    </footer>
+    <script>
+        let jogos = [
+            {
+                nome: "hollow knight",
+                imagem: "Imagens/HK.logo.jpg",
+                descricao: "Jogo mais lindo que ja joguei",
+                classe: "hollow-knight"
+            },
+            {
+                nome: "silk song",
+                imagem: "Imagens/SilkSong.logo.webp",
+                descricao: "Jogo mais lindo e dificil que ja joguei",
+                classe: "silk-song"
+            },
+            {
+                nome: "celeste",
+                imagem: "Imagens/Celeste.logo.webp",
+                descricao: "Meu jogo de plataforma favorito",
+                classe: "celeste"
+            },
+            {
+                nome: "terraria",
+                imagem: "Imagens/terraria.logo.webp",
+                descricao: "Meu jogo favorito entre todos",
+                classe: "terraria"
+            }
+        ];
+
+        let container = document.getElementById("container-jogos");
+
+        for (let i = 0; i < jogos.length; i++) {
+            let j = jogos[i];
+
+            container.innerHTML += `
+            <article class="card ${j.classe}">
+                <h2>${j.nome}</h2>
+                <img src="${j.imagem}" alt="${j.nome}">
+                <p>${j.descricao}</p>
+            </article>
+        `;
+        }
+    </script>
+</body>
+
+</html>
