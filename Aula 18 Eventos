@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de avaliação do meu site</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            width: 480px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 2px solid #fff;
+            background-color: #000;
+            margin: 0 auto;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 10px;
+            align-items: center;
+            text-align: left;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            width: 80%;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .radio-group input {
+            width: auto;
+        }
+
+        form input[type="submit"] {
+            grid-column: 1 / -1;
+            justify-self: center;
+            width: auto;
+        }
+
+        .footer-text {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Melhorando meu formulário com JS</h1>
+    </header>
+    <main>
+        <section class="container">
+            <h2>Formulário de nota para os meus sites</h2>
+            <form id="meu-form">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="Digite seu nome aqui">
+
+                <label for="nota">Nota:</label>
+                <input type="number" name="nota" id="nota" placeholder="Coloque sua nota aqui (0-10)" min="0" max="10">
+
+                <label for="email">Email de contato:</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu Email aqui">
+
+                <label for="genero">O que achou dos sites?</label>
+                <select name="genero" id="genero">
+                    <option value="muito bons">Muito bons</option>
+                    <option value="bons">Bons</option>
+                    <option value="sem opiniao">Sem opinião</option>
+                    <option value="ruins">Ruins</option>
+                    <option value="muito ruins">Muito ruins</option>
+                </select>
+                <label for="recomendaria">Recomendaria este site pra outra pessoa?</label>
+
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" id="sim" name="recomendaria" value="sim">
+                        Sim
+                    </label>
+
+                    <label>
+                        <input type="radio" id="nao" name="recomendaria" value="nao">
+                        Não
+                    </label>
+                </div>
+
+                <label for="comentario">Deixe seu feedback aqui:</label>
+                <textarea id="comentario" name="comentario" rows="3" placeholder="comente um pouco aqui..."></textarea>
+
+                <input type="submit" value="Enviar Formulário">
+            </form>
+
+            <p id="mensagem"></p>
+        </section>
+    </main>
+
+    <footer class="footer-text">
+        <p>Site de hoje deu um puta de um trabalho mas saiu kkkk :)</p>
+    </footer>
+    <script>
+        let form = document.getElementById("meu-form");
+        let mensagem = document.getElementById("mensagem");
+
+        form.addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            let nome = document.getElementById("nome").value;
+            let nota = document.getElementById("nota").value;
+            let email = document.getElementById("email").value;
+            let comentario = document.getElementById("comentario").value;
+            let recomendaSim = document.getElementById("sim").checked;
+            let recomendaNao = document.getElementById("nao").checked;
+
+            if (nome.trim() === "") {
+                mensagem.textContent = "Por favor, preencha seu nome!";
+                mensagem.style.color = "red";
+            } else if (nota === "") {
+                mensagem.textContent = "Por favor, preencha uma nota!";
+                mensagem.style.color = "red";
+            } else if (email.trim() === "") {
+                mensagem.textContent = "Por favor, preencha seu email!";
+                mensagem.style.color = "red";
+            } else if (!recomendaSim && !recomendaNao) {
+                mensagem.textContent = "Escolha se recomedaria ou não!";
+                mensagem.style.color = "red";
+            } else if (comentario.trim() === "") {
+                mensagem.textContent = "Por favor, deixe seu comentario!";
+                mensagem.style.color = "red";
+            } else {
+                mensagem.textContent =
+                    "Obrigado, " + nome + "! Nota registrada: " + nota;
+                mensagem.style.color = "green";
+            }
+
+        });
+    </script>
+</body>
+
+</html>
