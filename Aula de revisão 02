@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>minha coleção de jogos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'poppins', sans-serif;
+            text-align: center;
+            flex-direction: column;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 70px;
+            text-shadow: 
+                    -1px -1px 0 #000,
+                    1px -1px 0 #000,
+                    -1px 1px 0 #000,
+                    1px 1px 0 #000;
+        }
+
+        .layout {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .area-formulario {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .area-formulario input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .area-cards {
+            flex: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .card {
+            border: 2px solid #8a2be2;
+            padding: 15px;
+        }
+
+        .footer-text {
+            font-size: 25px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            background-color: #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Minha coleção de jogos</h1>
+    </header>
+    <main>
+        <div class="layout">
+            <section class="area-formulario">
+                <h2>Adicionar jogos</h2>
+                <form id="form-jogo">
+                    <label for="nome-jogo">Nome do jogo:</label>
+                    <input type="text" id="nome-jogo" placeholder="Coloque o nome do jogo...">
+
+                    <label for="nota-jogo">Nota:</label>
+                    <input type="number" id="nota-jogo" min="0" max="10" placeholder="Coloque a nota aqui...">
+
+                    <button type="submit">Adicionar</button>
+                </form>
+            </section>
+
+            <section class="area-cards" id="container-jogos"></section>
+        </div>
+    </main>
+    <footer class="footer-text">
+        <p>Hoje o codigo do JS foi dificil kkkk :)</p>
+    </footer>
+
+    <script>
+        let jogos = [
+            {nome: "Hollow Knight", nota: 10},
+            {nome: "Terraria", nota: 10}
+        ];
+
+        function desenharCards() {
+            let container = document.getElementById("container-jogos");
+            container.innerHTML = "";
+
+            for (let i = 0; i < jogos.length; i++) {
+                container.innerHTML += `
+                <div class="card">
+                    <h3>${jogos[i].nome}</h3>
+                    <p>Nota: ${jogos[i].nota}</p>
+                </div>
+            `;
+            }
+        }
+
+        desenharCards();
+        document.getElementById("form-jogo").addEventListener("submit", function(evento) {
+            evento.preventDefault();
+
+            let nomeNovo = document.getElementById("nome-jogo").value;
+            let notaNova = document.getElementById("nota-jogo").value;
+
+            if (nomeNovo.trim() === "") {
+                alert("Preencha o nome do jogo!");
+                return;
+            }
+
+            if (notaNova === "") {
+                alert("Preencha a nota!");
+                return;
+            }
+
+            jogos.push({nome: nomeNovo, nota: notaNova});
+            desenharCards();
+
+            document.getElementById("nome-jogo").value = "";
+            document.getElementById("nota-jogo").value = "";
+        });
+    </script>
+</body>
+</html>

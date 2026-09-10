@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletim escolar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f0fbff;
+            color: #000000;
+            font-family: sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .grid-materias {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
+        .menu-lateral {
+            border: 2px solid #000000;
+            padding: 15px;
+            color: #ffffff;
+            background-color: #000000;
+            height: 447px;
+        }
+
+        .grid-materias>* {
+            border: 3px solid #000000;
+            padding: 15px;
+        }
+
+        .matematica {
+            background-color: #aaff95;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .portugues {
+            background-color: #ff9292;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .geografia {
+            background-color: #bc81ff;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .historia {
+            background-color: #fff388;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .ingles {
+            background-color: #86cfff;
+            transition: transform 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .matematica:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #1f9c00;
+        }
+
+        .portugues:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #b10000ff;
+        }
+
+        .geografia:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #6400d7;
+        }
+
+        .historia:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #9f8f00;
+        }
+
+        .ingles:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: #0073bf;
+        }
+
+        .calculadora-media {
+            border: 3px solid #000000;
+            padding: 15px;
+            margin: 20px auto 0;
+            background-color: #ffffff;
+            width: 500px;
+        }
+
+        .footer-text {
+            font-size: 30px;
+            color: #000000;
+            text-align: center;
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                margin: 15px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-lateral {
+                height: auto;
+            }
+
+            .grid-materias {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .calculadora-media {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                margin: 10px;
+            }
+
+            .grid-materias {
+                grid-template-columns: 1fr;
+            }
+
+            .calculadora-media {
+                padding: 12px;
+            }
+
+            .calculadora-media input {
+                width: 100%;
+            }
+
+            .footer-text {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="menu-lateral">
+            <h2>Menu lateral</h2>
+            <p>Início</p>
+            <p>Boletim</p>
+            <p>Aulas</p>
+            <p>Suporte</p>
+        </aside>
+
+        <main>
+            <h1>Boletim escolar</h1>
+
+            <section class="grid-materias">
+                <div class="matematica">
+                    <h2>Matemática</h2>
+                    <p>Nota: 8,7</p>
+                    <p>Frequência: 92%</p>
+                </div>
+
+                <div class="portugues">
+                    <h2>Português</h2>
+                    <p>Nota: 9,1</p>
+                    <p>Frequência: 96%</p>
+                </div>
+
+                <div class="geografia">
+                    <h2>Geografia</h2>
+                    <p>Nota: 7,8</p>
+                    <p>Frequência: 89%</p>
+                </div>
+
+                <div class="historia">
+                    <h2>História</h2>
+                    <p>Nota: 8,4</p>
+                    <p>Frequência: 94%</p>
+                </div>
+
+                <div class="ingles">
+                    <h2>Inglês</h2>
+                    <p>Nota: 9,5</p>
+                    <p>Frequência: 98%</p>
+                </div>
+            </section>
+
+            <section class="calculadora-media">
+                <h2>Quer calcular sua média?</h2>
+                <p>Coloque aqui suas notas (separadas por vírgula):</p>
+                <input type="text" id="notas-input" placeholder="Ex: 8, 9, 7.5">
+                <button onclick="calcular()">Calcular</button>
+                <p id="resultado-media"></p>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p class="footer-text">Sitezinho de hoje guys :)</p>
+    </footer>
+
+    <script>
+        function calcular() {
+            let textoDigitado = document.getElementById("notas-input").value;
+            let notasTexto = textoDigitado.split(",");
+
+            let notas = [];
+            for (let i = 0; i < notasTexto.length; i++) {
+                notas.push(Number(notasTexto[i]));
+            }
+
+            let soma = 0;
+            for (let i = 0; i < notas.length; i++) {
+                soma += notas[i];
+            }
+
+            let media = soma / notas.length;
+
+            document.getElementById("resultado-media").textContent = "Sua média é:" + media.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
