@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Notas da Turma</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #000;
+            color: #fff;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid #ffffff;
+            box-shadow: 
+                0 0 12px #fbfc93,
+                0 0 30px #fbfc93;
+        }
+
+        th,
+        td {
+            border: 2px solid #fff;
+            padding: 10px;
+        }
+
+        .footer-text {
+            font-size: 30px;
+            text-align: center;
+            color: #fff;
+        }
+
+    
+        td.aprovado {
+            background-color: #166534;
+        }
+
+        td.reprovado {
+            background-color: #991b1b;
+        }
+
+        td.aluno-nota {
+            background-color: #003b66fc;
+        }
+
+        thead {
+            background-color: #00025a;
+        }
+
+        #resumo,
+        #notas-arredondadas {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Tabela de Alunos Aprovados</h1>
+    </header>
+
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nota</th>
+                        <th>Situação</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela">
+
+                </tbody>
+            </table>
+            <p id="resumo"></p>
+            <p id="notas-arredondadas"></p>
+        </section>
+    </main>
+
+    <footer class="footer-text">
+        <p>Foi complicado de entender mas depois ficou facinho :)</p>
+    </footer>
+
+    <script>
+        let alunos = [
+            { nome: "Beatriz", nota: 6.4 },
+            { nome: "Camila", nota: 9.1 },
+            { nome: "Gabriel", nota: 3.6 },
+            { nome: "João", nota: 5.8 },
+            { nome: "Larissa", nota: 7.3 },
+            { nome: "Lucas", nota: 5.5 },
+            { nome: "Mariana", nota: 8.7 },
+            { nome: "Rafael", nota: 4.2 }
+        ];
+
+        let aprovados = alunos.filter(function(aluno) {
+            return aluno.nota >= 6;
+        });
+
+        let reprovados = alunos.filter(function(aluno) {
+            return aluno.nota < 6;
+        });
+
+        let corpoTabela = document.getElementById("corpo-tabela");
+
+        alunos.forEach(function(aluno) {
+            let situacao;
+            let classeSituacao;
+
+            if (aluno.nota >= 6) {
+                situacao = "Aprovado";
+                classeSituacao = "aprovado";
+            } else {
+                situacao = "Reprovado";
+                classeSituacao = "reprovado"
+            }
+
+            corpoTabela.innerHTML += `
+            <tr>
+                <td class="aluno-nota">${aluno.nome}</td>
+                <td class="aluno-nota">${aluno.nota}</td>
+                <td class="${classeSituacao}">${situacao}</td>
+            </tr>
+            `;
+        });
+
+        document.getElementById("resumo").textContent = "Aprovados: " + aprovados.length + " | Reprovados: " + reprovados.length;
+
+        let  notasArredondadas = alunos.map(function(aluno) {
+            return Math.ceil(aluno.nota);
+        });
+
+        document.getElementById("notas-arredondadas").textContent = "Notas arredondadas: " + notasArredondadas.join(", ");
+    </script>
+</body>
+
+</html>

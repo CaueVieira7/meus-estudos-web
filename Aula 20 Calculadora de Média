@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de média</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            justify-content: center;
+            flex-direction: column;
+            display: flex;
+            font-family: 'poppins', sans-serif;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .calculadora {
+            display: grid;
+            grid-template-columns: 1fr;
+            border: 3px solid #fff;
+            padding: 25px;
+            margin: 20px auto 0;
+            width: 480px;
+        }
+
+        .footer-text {
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Calculadora de Média</h1>
+    </header>
+
+    <main>
+        <section class="calculadora">
+            <h2>Quer saber sua média?</h2>
+            <p>Coloque suas notas aqui (separadas por vírgula):</p>
+            <input type="text" id="notas" placeholder="Ex: 6, 9, 5.5">
+            <button onclick="calcular()">Calcular</button>
+            <p id="resultado"></p>
+        </section>
+    </main>
+
+    <footer class="footer-text">
+        <p>Uma calculadora básica com JS :)</p>
+    </footer>
+
+    <script>
+        function calcular() {
+            let textoDigitado = document.getElementById("notas").value;
+
+            if (textoDigitado.trim() === "") {
+                document.getElementById("resultado").textContent = "digite pelo menos uma nota!";
+                return;
+            }
+
+            let notasTexto = textoDigitado.split(",");
+            let notas = [];
+            for (let i = 0; i < notasTexto.length; i++) {
+                notas.push(Number(notasTexto[i]));
+            }
+
+            let media = calcularMedia(notas);
+            document.getElementById("resultado").textContent = "Sua média é: " + media.toFixed(2);
+        }
+
+        function calcularMedia(notas) {
+            let soma = 0;
+            for (let i = 0; i < notas.length; i++) {
+                soma += notas[i];
+            }
+            return soma / notas.length;
+        }
+    </script>
+</body>
+
+</html>
