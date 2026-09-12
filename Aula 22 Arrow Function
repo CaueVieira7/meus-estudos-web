@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Estoque da Loja</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            min-width: 100vh;
+            text-shadow:
+                -1px -1px #000,
+                1px -1px #000,
+                -1px 1px #000,
+                1px 1px #000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid #ffffff;
+            box-shadow: 
+                0 0 12px #fff,
+                0 0 30px #fff;
+        }
+
+        th,
+        td {
+            border: 2px solid #fff;
+            padding: 10px;
+        }
+
+        .footer-text {
+            font-size: 22px;
+            text-align: center;
+            color: #fff;
+        }
+
+        td.critico {
+            background-color: #dc2626;
+            color: #fff;
+        }
+
+        td.baixo {
+            background-color: #facc15;
+            color: #fff;
+        }
+
+        td.ok {
+            background-color: #16a34a;
+            color: #fff;
+        }
+
+        thead {
+            background-color: #0004f3;
+        }
+
+        td.geral {
+            background-color: #005ea1;
+        }
+
+        #resumo,
+        #notas-arredondadas {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Tabela de Produtos da loja</h1>
+    </header>
+
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Valor Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela">
+
+                </tbody>
+            </table>
+            <p id="resumo"></p>
+            <p id="notas-arredondadas"></p>
+        </section>
+    </main>
+
+    <footer class="footer-text">
+        <p>Sitezinho de hoje foi pra fizar o arrowFunction :)</p>
+    </footer>
+
+    <script>
+        let produtos = [
+            { nome: "Mouse Gamer", preco: 129.90, quantidade: 15 },
+            { nome: "Webcam Full HD", preco: 249.90, quantidade: 8 },
+            { nome: "Monitor Gamer 27\"", preco: 899.90, quantidade: 3 },
+            { nome: "Teclado Mecânico", preco: 349.90, quantidade: 12 },
+            { nome: "Headset Gamer", preco: 199.90, quantidade: 6 },
+            { nome: "Mousepad Grande", preco: 79.90, quantidade: 20 },
+            { nome: "Microfone USB", preco: 429.90, quantidade: 2 },
+            { nome: "Placa de Vídeo", preco: 749.90, quantidade: 0 },
+            { nome: "Cadeira Gamer", preco: 699.90, quantidade: 5 },
+            { nome: "Hub USB", preco: 39.90, quantidade: 10 }
+        ];
+
+        let corpoTabela = document.getElementById("corpo-tabela");
+
+        produtos.forEach((produto) => {
+            let valorTotal = produto.preco * produto.quantidade;
+            let status;
+            let classeStatus;
+
+            if (produto.quantidade <= 3) {
+                status = "Estoque Crítico";
+                classeStatus = "critico";
+            } else if (produto.quantidade <= 10) {
+                status = "Estoque Baixo";
+                classeStatus = "baixo";
+            } else {
+                status = "Estoque OK";
+                classeStatus = "ok";
+            }
+
+            corpoTabela.innerHTML += `
+            <tr>
+                    <td class="geral">${produto.nome}</td>
+                    <td class="geral">R$ ${produto.preco.toFixed(2)}</td>
+                    <td class="geral">${produto.quantidade}</td>
+                    <td class="geral">R$ ${valorTotal.toFixed(2)}</td>
+                    <td class="${classeStatus}">${status}</td>
+                </tr>
+            `;
+        });
+
+        let valoresTotais = produtos.map((produto) => produto.preco * produto.quantidade);
+
+        let critico = produtos.filter((produto) => produto.quantidade <= 3);
+
+        let valorTotalEstoque = produtos.reduce((acumulador, produto) => acumulador + (produto.preco * produto.quantidade), 0);
+
+        let nomesCriticos = critico
+        .map((produto) => produto.nome)
+        .join(", ");
+
+        document.getElementById("resumo").textContent =
+        `Valor total do estoque: R$ ${valorTotalEstoque.toFixed(2)} | ` +
+            `Produtos críticos: ${critico.length} | ` +
+            `Produtos: ${nomesCriticos}`;
+    </script>
+</body>
+
+</html>
