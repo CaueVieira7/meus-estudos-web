@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking de jogadores</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            min-width: 100vh;
+            text-shadow:
+                -1px -1px #000,
+                1px -1px #000,
+                -1px 1px #000,
+                1px 1px #000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid #ffffff;
+            box-shadow:
+                0 0 12px #fff,
+                0 0 30px #fff;
+        }
+
+        th,
+        td {
+            border: 2px solid #fff;
+            padding: 10px;
+        }
+
+        .footer-text {
+            font-size: 22px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .primeiro-colocado {
+            background-color: #d4af37;
+            color: #fff;
+        }
+
+        .segundo-colocado {
+            background-color: #c0c0c0;
+            color: #fff;
+        }
+
+        .terceiro-colocado {
+            background-color: #cd7f32;
+            color: #fff;
+        }
+
+        .demais-colocados {
+            background-color: #383c9a;
+            color: #fff;
+        }
+
+         #pontos-gerais,
+        #maior-vencedor {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Ranking dos Jogadores</h1>
+    </header>
+
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Colocação</th>
+                        <th>Nome</th>
+                        <th>Pontos</th>
+                        <th>Vitórias</th>
+                        <th>Nível</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela">
+
+                </tbody>
+            </table>
+        </section>
+        <p id="pontos-gerais"></p>
+        <p id="maior-vencedor"></p>
+    </main>
+
+    <footer class="footer-text">
+        <p>sitezinho de hoje foi trabalhoso kkkk :)</p>
+    </footer>
+    
+    <script>
+        let jogadores = [
+            { nome: "Ana", pontuacao: 3420, vitorias: 24 },
+            { nome: "Bruno", pontuacao: 2180, vitorias: 12 },
+            { nome: "Carla", pontuacao: 1760, vitorias: 6 },
+            { nome: "Diego", pontuacao: 2980, vitorias: 20 },
+            { nome: "Elisa", pontuacao: 2450, vitorias: 15 },
+            { nome: "Felipe", pontuacao: 1890, vitorias: 8 },
+            { nome: "Gabriela", pontuacao: 3310, vitorias: 23 },
+            { nome: "Henrique", pontuacao: 2070, vitorias: 10 },
+            { nome: "Isabela", pontuacao: 2750, vitorias: 18 },
+            { nome: "João", pontuacao: 1680, vitorias: 5 }
+        ];
+
+        jogadores.sort((a, b) => b.pontuacao - a.pontuacao);
+
+        let corpoTabela = document.getElementById("corpo-tabela");
+
+        jogadores.forEach((jogador, indice) => {
+            let colocacao = indice + 1;
+
+            let nivel = jogador.vitorias >= 15
+                ? "veterano"
+                : "iniciante";
+
+            let classeColocacao;
+
+            if (indice === 0) {
+                classeColocacao = "primeiro-colocado";
+            } else if (indice === 1) {
+                classeColocacao = "segundo-colocado";
+            } else if (indice === 2) {
+                classeColocacao = "terceiro-colocado";
+            } else {
+                classeColocacao = "demais-colocados";
+            }
+
+            corpoTabela.innerHTML += `
+            <tr class="${classeColocacao}">
+                <td>${colocacao}</td>
+                <td>${jogador.nome}</td>
+                <td>${jogador.pontuacao}</td>
+                <td>${jogador.vitorias}</td>
+                <td>${nivel}</td>
+            </tr>
+        `;
+        });
+
+        let totalPontos = jogadores.reduce((acumulador, jogador) => acumulador + jogador.pontuacao, 0);
+
+        document.getElementById("pontos-gerais").textContent = `Total de pontos do ranking: ${totalPontos}`;
+
+        let maiorVencedor = jogadores.reduce ((atualMaior, jogador) => {
+            return jogador.vitorias > atualMaior.vitorias ? jogador : atualMaior;
+        });
+
+        document.getElementById("maior-vencedor").textContent = `Maior vencedor: ${maiorVencedor.nome} (${maiorVencedor.vitorias} vitórias)`;
+    </script>
+</body>
+
+</html>

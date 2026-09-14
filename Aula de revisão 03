@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de afazeres</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            min-width: 100vh;
+            text-shadow:
+                -1px -1px #000,
+                1px -1px #000,
+                -1px 1px #000,
+                1px 1px #000;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid #ffffff;
+        }
+
+        th,
+        td {
+            border: 2px solid #fff;
+            padding: 10px;
+        }
+
+        .footer-text {
+            font-size: 22px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .alta {
+            background-color: #ad3535;
+            color: #fff;
+        }
+
+        .media {
+            background-color: #b7b106;
+            color: #fff;
+        }
+
+        .baixa {
+            background-color: #0ea900;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Lista de afazeres</h1>
+    </header>
+
+    <main>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tarefa</th>
+                        <th>Prioridade</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela">
+
+                </tbody>
+            </table>
+            <p id="resumo-tarefas"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Revisão da semana :)</p>
+    </footer>
+
+    <script>
+        let tarefas = [
+            { nome: "Estudar JavaScript", prioridade: "Alta", feita: false },
+            { nome: "Treinar academia", prioridade: "Alta", feita: true },
+            { nome: "Assistir anime", prioridade: "Baixa", feita: false },
+            { nome: "Fazer atividade da escola", prioridade: "Média", feita: false },
+            { nome: "Organizar GitHub", prioridade: "Média", feita: false },
+            { nome: "Jogar Deadlock", prioridade: "Baixa", feita: true }
+        ];
+
+        let prioridadeParaNumero = {
+            "Alta": 3,
+            "Média": 2,
+            "Baixa": 1
+        };
+
+        tarefas = tarefas.sort((a, b) => prioridadeParaNumero[b.prioridade] - prioridadeParaNumero[a.prioridade]);
+
+        tarefas.forEach((tarefa) => {
+            let status = tarefa.feita ? "✅ Concluída" : "⏳ Pendente";
+            let classeStatus;
+
+            if (tarefa.prioridade === "Alta") {
+                classeStatus = "alta";
+            } else if (tarefa.prioridade === "Média") {
+                classeStatus = "media";
+            } else {
+                classeStatus = "baixa";
+            }
+
+
+            document.getElementById("corpo-tabela").innerHTML += `
+        <tr class="${classeStatus}">
+            <td>${tarefa.nome}</td>
+            <td>${tarefa.prioridade}</td>
+            <td>${status}</td>
+            </tr>
+        `;
+    });
+
+        let concluidas = tarefas.filter((tarefa) => tarefa.feita === true);
+        let pendentes = tarefas.filter((tarefa) => tarefa.feita === false);
+
+        document.getElementById("resumo-tarefas").textContent = `Concluídas: ${concluidas.length} | Pendentes: ${pendentes.length}`;
+    </script>
+</body>
+
+</html>
