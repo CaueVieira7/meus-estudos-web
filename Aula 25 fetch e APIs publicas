@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedén caseira</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(90deg, #0b2d92, #051a47);
+            color: #fff;
+            font-family: 'poppins', sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-width: 100vh;
+            justify-content: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr;
+            padding: 25px;
+            margin: 20px auto 0;
+            border: 3px solid #f5f546;
+            width: 700px;
+            background-color: #000;
+        }
+
+        img {
+            border: 3px solid #ffffff;
+            margin: 20px auto 0;
+            width: 150px;
+            transition: transform 0.6s ease-in-out,
+             border-color 0.6s ease-in-out,
+             box-shadow 0.6s ease-in-out;
+        }
+
+        img:hover {
+            transform: translateY(-5px) scale(1.03);
+            border-color: #f5f546;
+            box-shadow: 
+                0 0 15px #f5f546,
+                0 0 35px #f5f546;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        .footer-text {
+            font-size: 22px;
+            text-align: center;
+            color: #fff;
+        }
+
+        #nome-pokemon,
+        #tipo-pokemon {
+            font-family: 'Press Start 2P', sans-serif;
+            color: #f5f546;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Pokédex Básica</h1>
+    </header>
+    <main>
+        <section class="container">
+            <h2>Coloque o nome do pokemon que deseja para gerar um card dele</h2>
+            <input type="text" id="nome-input" placeholder="Coloque o nome do pokemon(em minúsculo)">
+            <button onclick="buscarPokemon()">Buscar</button>
+            <p id="nome-pokemon"></p>
+            <p id="tipo-pokemon"></p>
+            <img id="imagem-pokemon" src="" alt="">
+        </section>
+    </main>
+    <footer>
+        <p>Sitezinho de hoje foi uma pokedex pra aprender a usar API publicas :)</p>
+    </footer>
+
+    <script>
+        function buscarPokemon() {
+            let nomeDigitado = document.getElementById("nome-input").value;
+
+            fetch("https://pokeapi.co/api/v2/pokemon/" + nomeDigitado)
+                .then(resposta => resposta.json())
+                .then(dados => {
+                    document.getElementById("nome-pokemon").textContent = "Nome:" + dados.name;
+                    document.getElementById("imagem-pokemon").src = dados.sprites.front_default;
+
+                    let listaTipos = dados.types.map(t => t.type.name);
+                    let textoTipos = listaTipos.join(", ");
+                    document.getElementById("tipo-pokemon").textContent = "Tipo:" + textoTipos;
+                })
+                .catch(erro => {
+            document.getElementById("nome-pokemon").textContent = "Pokémon não encontrado!";
+            document.getElementById("imagem-pokemon").src = "";
+            document.getElementById("tipo-pokemon").textContent = "";
+        });
+    }
+        
+    </script>
+</body>
+
+</html>
