@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG - Batalha</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 20px 90px 20px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        section {
+            width: 100%;
+            max-width: 700px;
+        }
+
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .arena {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: #16213e;
+            border: 2px solid #0f3460;
+            border-radius: 12px;
+            padding: 20px;
+            width: 240px;
+            text-align: center;
+            box-shadow: 0 0 15px #0f346099;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            color: #e94560;
+        }
+
+        .card p {
+            margin: 8px 0;
+            font-size: 15px;
+        }
+
+        .barra-vida-fundo {
+            background-color: #333;
+            border-radius: 8px;
+            height: 16px;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+
+        .barra-vida {
+            background-color: #4ade80;
+            height: 100%;
+            transition: width 0.3s ease-in-out;
+        }
+
+        .controles {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: nowrap;
+        }
+
+        button {
+            background-color: #e94560;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background-color: #c1304a;
+        }
+
+        .footer-text {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            background-color: #1a1a2e;
+            color: #fff;
+            z-index: 10;
+        }
+
+        #log-batalha {
+            background-color: #0f0f1a;
+            border: 2px solid #0f3460;
+            border-radius: 12px;
+            padding: 15px 20px;
+            width: 100%;
+            max-width: 600px;
+            height: 250px;
+            overflow-y: auto;
+            font-size: 14px;
+            margin: 20px auto 0;
+            box-sizing: border-box;
+        }
+
+        #log-batalha p {
+            margin: 4px 0;
+            border-bottom: 1px solid #1f1f3a;
+            padding-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>⚔️ Arena de Batalha</h1>
+    </header>
+
+    <main>
+        <section>
+            <div class="arena">
+                <div class="card" id="card-personagem1">
+                    <h3 id="nome1"></h3>
+                    <p>Tipo de dano: <span id="tipoDano1"></span></p>
+                    <p>Vida: <span id="vida1"></span></p>
+                    <div class="barra-vida-fundo">
+                        <div class="barra-vida" id="barraVida1"></div>
+                    </div>
+                    <p>Defesa Física: <span id="defesaFisica1"></span></p>
+                    <p>Defesa Mágica: <span id="defesaMagica1"></span></p>
+                </div>
+
+                <div class="card" id="card-personagem2">
+                    <h3 id="nome2"></h3>
+                    <p>Tipo de dano: <span id="tipoDano2"></span></p>
+                    <p>Vida: <span id="vida2"></span></p>
+                    <div class="barra-vida-fundo">
+                        <div class="barra-vida" id="barraVida2"></div>
+                    </div>
+                    <p>Defesa Física: <span id="defesaFisica2"></span></p>
+                    <p>Defesa Mágica: <span id="defesaMagica2"></span></p>
+                </div>
+            </div>
+
+            <div class="controles">
+                <select id="selecao1"></select>
+                <select id="selecao2"></select>
+                <button onclick="iniciarBatalha()">Iniciar Batalha</button>
+            </div>
+
+            <div class="controles">
+                <button onclick="ataquePersonagem1()">Personagem 1 Ataca</button>
+                <button onclick="habilidadePersonagem1()">Habilidade Personagem 1</button>
+                <button onclick="ataquePersonagem2()">Personagem 2 Ataca</button>
+                <button onclick="habilidadePersonagem2()">Habilidade Personagem 2</button>
+            </div>
+
+            <div id="log-batalha"></div>
+        </section>
+    </main>
+
+    <footer class="footer-text">
+        <p>Sitezinho de hoje deu um trabalho enorme mas o resultado foi muito bom :)</p>
+    </footer>
+
+    <script>
+        class Personagem {
+            constructor(nome, vida, ataque, defesaFisica, defesaMagica, tipoDano) {
+                this.nome = nome;
+                this.vida = vida;
+                this.vidaMaxima = vida;
+                this.ataque = ataque;
+                this.defesaFisica = defesaFisica;
+                this.defesaMagica = defesaMagica;
+                this.tipoDano = tipoDano;
+            }
+
+            atacar(alvo) {
+                let defesaUsada = this.tipoDano === "Mágico" ? alvo.defesaMagica : alvo.defesaFisica;
+                let danoFinal = this.ataque - defesaUsada;
+                if (danoFinal < 0) danoFinal = 0;
+
+                alvo.vida -= danoFinal;
+                if (alvo.vida < 0) alvo.vida = 0;
+                logMensagem(`${this.nome} atacou ${alvo.nome} (${this.tipoDano}): ${danoFinal} de dano`);
+                atualizarTela();
+            }
+
+            estaVivo() {
+                return this.vida > 0;
+            }
+
+            curar(quantidade) {
+                this.vida += quantidade;
+                logMensagem(`${this.nome} se curou em ${quantidade} pontos!`);
+                atualizarTela();
+            }
+        }
+
+        class Paladino extends Personagem {
+            constructor(nome, vida, ataque, defesaFisica, defesaMagica) {
+                super(nome, vida, ataque, defesaFisica, defesaMagica, "Físico");
+            }
+
+            golpeEsmagador(alvo) {
+                alvo.defesaFisica -= 20;
+                if (alvo.defesaFisica < 0) alvo.defesaFisica = 0;
+
+                let danoFinal = this.ataque - alvo.defesaFisica;
+                if (danoFinal < 0) danoFinal = 0;
+
+                alvo.vida -= danoFinal;
+                if (alvo.vida < 0) alvo.vida = 0;
+                logMensagem(`${this.nome} usou Golpe Esmagador em ${alvo.nome}! Defesa reduzida para ${alvo.defesaFisica}. Dano: ${danoFinal}`);
+                atualizarTela();
+            }
+        }
+
+        class Bárbaro extends Personagem {
+            constructor(nome, vida, ataque, defesaFisica, defesaMagica) {
+                super(nome, vida, ataque, defesaFisica, defesaMagica, "Físico");
+            }
+
+            investidaEsmagadora(alvo) {
+                let danoFinal = (this.ataque * 2) - alvo.defesaFisica;
+                if (danoFinal < 0) danoFinal = 0;
+
+                alvo.vida -= danoFinal;
+                if (alvo.vida < 0) alvo.vida = 0;
+                logMensagem(`${this.nome} usou Investida Furiosa em ${alvo.nome}! Dano: ${danoFinal}`);
+                atualizarTela();
+            }
+        }
+
+        class Arqueiro extends Personagem {
+            constructor(nome, vida, ataque, defesaFisica, defesaMagica) {
+                super(nome, vida, ataque, defesaFisica, defesaMagica, "Distância");
+            }
+
+            tiroPreciso(alvo) {
+                alvo.vida -= this.ataque;
+                if (alvo.vida < 0) alvo.vida = 0;
+                logMensagem(`${this.nome} usou Tiro Preciso em ${alvo.nome}! Dano: ${this.ataque} (ignorou a defesa)`);
+                atualizarTela();
+            }
+        }
+
+        class Clérigo extends Personagem {
+            constructor(nome, vida, ataque, defesaFisica, defesaMagica) {
+                super(nome, vida, ataque, defesaFisica, defesaMagica, "Mágico");
+            }
+
+            curar(quantidade) {
+                this.vida += quantidade * 2;
+                if (this.vida > this.vidaMaxima) this.vida = this.vidaMaxima
+                logMensagem(`${this.nome} usou Cura Sagrada em si mesmo! Recuperou ${quantidade * 2} pontos!`);
+                atualizarTela()
+            }
+        }
+
+        class Mago extends Personagem {
+            constructor(nome, vida, ataque, defesaFisica, defesaMagica) {
+                super(nome, vida, ataque, defesaFisica, defesaMagica, "Mágico");
+            }
+
+            bolaDeFogo(alvo) {
+                let defesaReduzida = alvo.defesaMagica / 2;
+                let danoFinal = this.ataque - defesaReduzida;
+                if (danoFinal < 0) danoFinal = 0;
+
+                alvo.vida -= danoFinal;
+                if (alvo.vida < 0) alvo.vida = 0;
+                logMensagem(`${this.nome} lançou Bola de Fogo em ${alvo.nome}! Dano: ${danoFinal} (ignorou metade da defesa mágica)`);
+                atualizarTela();
+            }
+        }
+
+        let personagem1 = new Paladino("Benhard", 820, 25, 40, 35);
+        let personagem2 = new Bárbaro("Bjorn", 900, 45, 10, 5);
+        let personagem3 = new Arqueiro("Ubiratan", 520, 30, 10, 15);
+        let personagem4 = new Clérigo("Elysia", 480, 10, 15, 20);
+        let personagem5 = new Mago("Nyx", 285, 50, 0, 10);
+
+        let todosPersonagens = [personagem1, personagem2, personagem3, personagem4, personagem5];
+
+        function preencherSelecoes() {
+            let select1 = document.getElementById("selecao1");
+            let select2 = document.getElementById("selecao2");
+
+            todosPersonagens.forEach((personagem, indice) => {
+                select1.innerHTML += `<option value="${indice}">${personagem.nome}</option>`;
+                select2.innerHTML += `<option value="${indice}">${personagem.nome}</option>`;
+            });
+        }
+
+        preencherSelecoes();
+
+        let lutador1;
+        let lutador2;
+
+        function iniciarBatalha() {
+            todosPersonagens.forEach((personagem) => {
+                personagem.vida = personagem.vidaMaxima;
+            });
+
+            let indice1 = document.getElementById("selecao1").value;
+            let indice2 = document.getElementById("selecao2").value;
+
+            lutador1 = todosPersonagens[indice1];
+            lutador2 = todosPersonagens[indice2];
+
+            document.getElementById("log-batalha").innerHTML = "";
+            logMensagem(`A batalha entre ${lutador1.nome} e ${lutador2.nome} começou!`);
+
+            atualizarCard(1, lutador1);
+            atualizarCard(2, lutador2);
+        }
+
+        function ataquePersonagem1() {
+            lutador1.atacar(lutador2);
+            verificarFimDeBatalha();
+        }
+
+        function habilidadePersonagem1() {
+            if (lutador1 instanceof Paladino) {
+                lutador1.golpeEsmagador(lutador2);
+            } else if (lutador1 instanceof Bárbaro) {
+                lutador1.investidaEsmagadora(lutador2);
+            } else if (lutador1 instanceof Arqueiro) {
+                lutador1.tiroPreciso(lutador2);
+            } else if (lutador1 instanceof Clérigo) {
+                lutador1.curar(20);
+            } else {
+                lutador1.bolaDeFogo(lutador2);
+            }
+            verificarFimDeBatalha();
+        }
+
+        function ataquePersonagem2() {
+            lutador2.atacar(lutador1);
+            verificarFimDeBatalha();
+        }
+
+        function habilidadePersonagem2() {
+            if (lutador2 instanceof Paladino) {
+                lutador2.golpeEsmagador(lutador1);
+            } else if (lutador2 instanceof Bárbaro) {
+                lutador2.investidaEsmagadora(lutador1);
+            } else if (lutador2 instanceof Arqueiro) {
+                lutador2.tiroPreciso(lutador1);
+            } else if (lutador2 instanceof Clérigo) {
+                lutador2.curar(20);
+            } else {
+                lutador2.bolaDeFogo(lutador1);
+            }
+            verificarFimDeBatalha();
+        }
+
+        function logMensagem(texto) {
+            document.getElementById("log-batalha").innerHTML += `<p>${texto}</p>`;
+            let log = document.getElementById("log-batalha");
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function atualizarCard(numero, personagem) {
+            document.getElementById(`nome${numero}`).textContent = personagem.nome;
+            document.getElementById(`tipoDano${numero}`).textContent = personagem.tipoDano;
+            document.getElementById(`vida${numero}`).textContent = personagem.vida;
+            document.getElementById(`defesaFisica${numero}`).textContent = personagem.defesaFisica;
+            document.getElementById(`defesaMagica${numero}`).textContent = personagem.defesaMagica;
+
+            let percentualVida = Math.max(0, (personagem.vida / personagem.vidaMaxima) * 100);
+            document.getElementById(`barraVida${numero}`).style.width = percentualVida + "%";
+        }
+
+
+
+        function atualizarTela() {
+            atualizarCard(1, lutador1);
+            atualizarCard(2, lutador2);
+        }
+
+        function verificarFimDeBatalha() {
+            if (!lutador1.estaVivo()) {
+                logMensagem(`🏆 ${lutador2.nome} venceu a batalha!`);
+            } else if (!lutador2.estaVivo()) {
+                logMensagem(`🏆 ${lutador1.nome} venceu a batalha!`);
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
