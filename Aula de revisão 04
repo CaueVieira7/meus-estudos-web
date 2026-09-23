@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Playfair+Display&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+        }
+
+        body {
+            background: radial-gradient(circle, #fffefb 40%, #e8dcb8 100%);
+            color: #3b2f2f;
+            font-family: 'EB Garamond', serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px 20px 90px 20px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        section {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .container {
+            background-color: #fffdf7;
+            border: 2px solid #d8c9a3;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container input {
+            width: 100%;
+            max-width: 300px;
+            padding: 10px;
+            font-family: inherit;
+            font-size: 16px;
+            border: 2px solid #d8c9a3;
+            border-radius: 6px;
+            background-color: #fffefb;
+            color: #3b2f2f;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #6b5b45;
+            color: #fffdf7;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            margin: 4px;
+        }
+
+        button:hover {
+            background-color: #4a3f30;
+        }
+
+        #resultado-busca {
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        #lista-disponiveis {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        #lista-disponiveis li {
+            border-bottom: 1px solid #e8dcb8;
+            padding: 8px 4px;
+        }
+
+        .footer-text {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 12px 0;
+            background-color: #e8dcb8;
+            color: #3b2f2f;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📓 Biblioteca Digital</h1>
+    </header>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>Buscar livro</h2>
+                <input type="text" id="busca-titulo" placeholder="Digite o título do livro">
+                <br>
+                <button onclick="buscarLivro()">Buscar</button>
+                <div id="resultado-busca"></div>
+            </div>
+
+            <div class="container">
+                <h2>Livros disponíveis</h2>
+                <ul id="lista-disponiveis"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-text">
+        <p>Sitezinho de hoje é uma revisão da semana :)</p>
+    </footer>
+
+    <script>
+        class Livro {
+            #disponivel;
+
+            constructor(titulo, autor) {
+                this.titulo = titulo;
+                this.autor = autor;
+                this.#disponivel = true;
+            }
+
+            get disponivel() {
+                return this.#disponivel;
+            }
+
+            emprestar() {
+                if (this.#disponivel) {
+                    this.#disponivel = false;
+                    return `O livro "${this.titulo}" foi emprestado com sucesso!`;
+                } else {
+                    return `O livro "${this.titulo}" já está emprestado.`;
+                }
+            }
+
+            devolver() {
+                if (!this.#disponivel) {
+                    this.#disponivel = true;
+                    return `O libro "${this.titulo}" foi devolvido com sucesso!`;
+                } else {
+                    return `Você não emprestou nenhum livro!`;
+                }
+            }
+        }
+
+        class Biblioteca {
+            constructor() {
+                this.livro = []
+            }
+
+            adicionarLivro(Livro) {
+                this.livro.push(Livro);
+            }
+
+            buscarPorTitulo(titulo) {
+                return this.livro.find(livro => livro.titulo === titulo);
+            }
+
+            listarDisponiveis() {
+                return this.livro.filter(livro => livro.disponivel === true);
+            }
+        }
+
+        let biblioteca = new Biblioteca();
+
+        biblioteca.adicionarLivro(new Livro("Jujutsu Kaisen Vol. 1", "Gege Akutami"));
+        biblioteca.adicionarLivro(new Livro("Blue Lock Vol. 1", "Muneyuki Kaneshiro"));
+        biblioteca.adicionarLivro(new Livro("Player", "Park Jong-Seok"));
+        biblioteca.adicionarLivro(new Livro("Homem-Aranha: A Última Caçada de Kraven", "J.M. DeMatteis"));
+
+        let livroSelecionado;
+
+        function buscarLivro() {
+            let titulo = document.getElementById("busca-titulo").value;
+            livroSelecionado = biblioteca.buscarPorTitulo(titulo);   // guarda aqui, sem "let" de novo
+
+            if (livroSelecionado) {
+                if (livroSelecionado.disponivel) {
+                    document.getElementById("resultado-busca").innerHTML = `
+                <p>${livroSelecionado.titulo} - ${livroSelecionado.autor}</p>
+                <p>Status: Disponível</p>
+                <button onclick="emprestarLivro()">Emprestar</button>
+            `;
+                } else {
+                    document.getElementById("resultado-busca").innerHTML = `
+                <p>${livroSelecionado.titulo} - ${livroSelecionado.autor}</p>
+                <p>Status: Emprestado</p>
+                <button onclick="devolverLivro()">Devolver</button>
+            `;
+                }
+            } else {
+                document.getElementById("resultado-busca").textContent = "Livro não encontrado.";
+            }
+        }
+
+        function emprestarLivro() {
+            let mensagem = livroSelecionado.emprestar();
+            document.getElementById("resultado-busca").innerHTML += `<p>${mensagem}</p>`;
+            atualizarListaDisponiveis();
+        }
+
+        function devolverLivro() {
+            let mensagem = livroSelecionado.devolver();
+            document.getElementById("resultado-busca").innerHTML += `<p>${mensagem}</p>`;
+            atualizarListaDisponiveis();
+        }
+
+        function atualizarListaDisponiveis() {
+            document.getElementById("lista-disponiveis").innerHTML = "";
+            let disponiveis = biblioteca.listarDisponiveis();
+
+            disponiveis.forEach((livro) => {
+                document.getElementById("lista-disponiveis").innerHTML += `<li>${livro.titulo} - ${livro.autor}</li>`;
+            });
+        }
+
+        atualizarListaDisponiveis();
+    </script>
+</body>
+
+</html>
